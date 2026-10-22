@@ -1,0 +1,39 @@
+{
+  "name": "typescript-exercise",
+  "version": "1.0.0",
+  "description": "Small TypeScript CRUD application using HTML, CSS, TypeScript, Express and MongoDB",
+  "main": "dist/server/server.js",
+  "scripts": {
+    "build": "npm run build:server && npm run build:client",
+    "build:server": "tsc -p tsconfig.json",
+    "build:client": "tsc -p tsconfig.client.json",
+    "start": "node dist/server/server.js",
+    "dev": "tsx watch server/src/server.ts",
+    "test": "node --test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PaulRiachy/typescript-exercise.git"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/PaulRiachy/typescript-exercise/issues"
+  },
+  "homepage": "https://github.com/PaulRiachy/typescript-exercise#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "mongoose": "^8.19.2",
+    "multer": "^2.0.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.5",
+    "@types/multer": "^2.0.0",
+    "@types/node": "^24.19.2",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}

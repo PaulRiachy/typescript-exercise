@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>User Management</title>
+
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+
+  <main class="container">
+
+    <h1>User Management</h1>
+
+    <section class="card">
+
+      <h2 id="formTitle">Add User</h2>
+
+      <form id="userForm">
+
+        <input type="hidden" id="userId" />
+
+        <div class="form-row">
+
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              required
+            />
+          </div>
+
+        </div>
+
+        <div class="form-group">
+
+          <label for="gender">Gender</label>
+
+          <select id="gender" name="gender" required>
+
+            <option value="">Select gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+
+          </select>
+
+        </div>
+
+
+        <div id="maleSection" class="conditional-section hidden">
+
+          <div class="form-group">
+
+            <label for="ageBracket">Age Bracket</label>
+
+            <select id="ageBracket" name="ageBracket">
+
+              <option value="">Select age bracket</option>
+              <option value="1-17">1–17</option>
+              <option value="18-29">18–29</option>
+              <option value="30-49">30–49</option>
+              <option value="50-69">50–69</option>
+              <option value="70-89">70–89</option>
+
+            </select>
+
+          </div>
+
+        </div>
+
+
+        <div id="adultSection" class="conditional-section hidden">
+
+          <div class="form-group">
+
+            <label for="salaryBracket">Salary</label>
+
+            <select id="salaryBracket" name="salaryBracket">
+
+              <option value="">Select salary bracket</option>
+              <option value="0-1999">$0–1999</option>
+              <option value="2000-3999">$2000–3999</option>
+              <option value="4000-5999">$4000–5999</option>
+              <option value="6000-7999">$6000–7999</option>
+              <option value="8000-9999">$8000–9999</option>
+              <option value="other">Other</option>
+
+            </select>
+
+          </div>
+
+          <div
+            id="customSalarySection"
+            class="form-group hidden"
+          >
+
+            <label for="customSalary">
+              Custom Salary
+            </label>
+
+            <input
+              type="number"
+              id="customSalary"
+              name="customSalary"
+              min="0"
+              step="0.01"
+            />
+
+          </div>
+
+        </div>
+
+
+        <div
+          id="minorSection"
+          class="conditional-section hidden"
+        >
+
+          <div class="form-group">
+
+            <label for="education">
+              Education
+            </label>
+
+            <select id="education" name="education">
+
+              <option value="">
+                Select education
+              </option>
+
+              <option value="school">
+                School
+              </option>
+
+              <option value="university">
+                University
+              </option>
+
+            </select>
+
+          </div>
+
+          <div
+            id="schoolSection"
+            class="form-group hidden"
+          >
+
+            <label for="schoolYear">
+              School Year
+            </label>
+
+            <select
+              id="schoolYear"
+              name="educationYear"
+            >
+
+              <option value="">Select year</option>
+              <option value="1">Year 1</option>
+              <option value="2">Year 2</option>
+              <option value="3">Year 3</option>
+              <option value="4">Year 4</option>
+              <option value="5">Year 5</option>
+              <option value="6">Year 6</option>
+
+            </select>
+
+          </div>
+
+          <div
+            id="universitySection"
+            class="hidden"
+          >
+
+            <div class="form-group">
+
+              <label for="major">
+                Major
+              </label>
+
+              <input
+                type="text"
+                id="major"
+                name="major"
+              />
+
+            </div>
+
+            <div class="form-group">
+
+              <label for="universityYear">
+                University Year
+              </label>
+
+              <select
+                id="universityYear"
+                name="educationYear"
+              >
+
+                <option value="">
+                  Select year
+                </option>
+
+                <option value="1">
+                  Year 1
+                </option>
+
+                <option value="2">
+                  Year 2
+                </option>
+
+                <option value="3">
+                  Year 3
+                </option>
+
+                <option value="4">
+                  Year 4
+                </option>
+
+              </select>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="image">
+            Image (Optional)
+          </label>
+
+          <input
+            type="file"
+            id="image"
+            name="image"
+            accept="image/*"
+          />
+
+        </div>
+
+        <div class="form-actions">
+
+          <button type="submit" id="submitButton">
+            Add User
+          </button>
+
+          <button
+            type="button"
+            id="cancelButton"
+            class="secondary hidden"
+          >
+            Cancel
+          </button>
+
+        </div>
+
+        <p id="message"></p>
+
+      </form>
+
+    </section>
+
+    <!-- table -->
+
+    <section class="card">
+
+      <h2>Users</h2>
+
+      <div class="table-container">
+
+        <table>
+
+          <thead>
+
+            <tr>
+              <th>Image</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Gender</th>
+              <th>Age</th>
+              <th>Salary</th>
+              <th>Education</th>
+              <th>Major</th>
+              <th>Actions</th>
+            </tr>
+
+          </thead>
+
+          <tbody id="usersTableBody"></tbody>
+
+        </table>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script type="module" src="/js/app.js"></script>
+
+</body>
+</html>
